@@ -18,8 +18,10 @@ builder.Host.UseSerilog();
 // Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    options.AddPolicy("AllowAngularApp",
+        builder => builder.WithOrigins("http://localhost:4200")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 });
 
 // Add services to the container.
@@ -61,7 +63,7 @@ builder.Services.AddProblemDetails();
 var app = builder.Build();
 
 app.UseExceptionHandler();
-app.UseCors("AllowAll");
+app.UseCors("AllowAngularApp");
 
 if (app.Environment.IsDevelopment())
 {
