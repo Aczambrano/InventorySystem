@@ -1,6 +1,6 @@
 @Api_HostAddress = http://localhost:5031
 
-GET {{Api_HostAddress}}/weatherforecast/
+GET {{InventorySystem.API_HostAddress}}/api/products
 Accept: application/json
 
 ###

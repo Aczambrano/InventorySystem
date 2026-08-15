@@ -1,0 +1,14 @@
+2026-08-14 19:53:00.812 -05:00 [INF] User profile is available. Using 'C:\Users\Anderson\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-14 19:53:01.440 -05:00 [INF] Now listening on: https://localhost:7041
+2026-08-14 19:53:01.445 -05:00 [INF] Now listening on: http://localhost:5133
+2026-08-14 19:53:01.908 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-14 19:53:01.912 -05:00 [INF] Hosting environment: Development
+2026-08-14 19:53:01.915 -05:00 [INF] Content root path: D:\Banco Guayaquil\InventorySystem\Api
+2026-08-14 19:53:04.157 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2026-08-14 19:53:04.615 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 461.559ms
+2026-08-14 19:53:04.925 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-14 19:53:04.925 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2026-08-14 19:53:04.950 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13790 application/javascript; charset=utf-8 24.4907ms
+2026-08-14 19:53:05.191 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 266.2668ms
+2026-08-14 19:53:05.778 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2026-08-14 19:53:06.055 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 276.8789ms
