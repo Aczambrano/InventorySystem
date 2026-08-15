@@ -1,30 +1,30 @@
-# Visual Studio
+# ===== Visual Studio =====
 .vs/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-# Build results
-[Bb]in/
-[Oo]bj/
-[Dd]ebug/
-[Rr]elease/
-x64/
-x86/
-[Aa]rm/
-[Aa]rm64/
+# ===== Build results (.NET) =====
+InventorySystem/**/[Bb]in/
+InventorySystem/**/[Oo]bj/
+InventorySystem/**/[Dd]ebug/
+InventorySystem/**/[Rr]elease/
+InventorySystem/**/x64/
+InventorySystem/**/x86/
+InventorySystem/**/[Aa]rm/
+InventorySystem/**/[Aa]rm64/
 
-# Visual Studio cache
+# ===== Visual Studio cache =====
 *.VC.db
 *.VC.VC.opendb
 
-# Test results
+# ===== Test results =====
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 *.trx
 
-# NuGet
+# ===== NuGet =====
 *.nupkg
 *.snupkg
 **/[Pp]ackages/*
@@ -34,47 +34,57 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
-# ASP.NET / .NET
-wwwroot/lib/
+# ===== ASP.NET / .NET =====
+InventorySystem/**/wwwroot/lib/
 *.dll
 *.pdb
 
-# User-specific configuration
+# ===== User-specific configuration =====
 appsettings.Development.json
 appsettings.Local.json
 
-# Environment variables / secrets
+# ===== Environment variables / secrets =====
 .env
 .env.*
 !.env.example
 
-# Logs
+# ===== Logs =====
 *.log
+InventorySystem/Api/Logs/
 
-# OS generated files
+# ===== OS generated files =====
 .DS_Store
 Thumbs.db
 
-# JetBrains Rider / ReSharper
+# ===== JetBrains Rider / ReSharper =====
 .idea/
 *.sln.iml
 _ReSharper*/
 *.[Rr]e[Ss]harper
 
-# VS Code
+# ===== VS Code =====
 .vscode/
 
-# Database local files
+# ===== Database local files =====
 *.db
 *.db-shm
 *.db-wal
 
-# Coverage
+# ===== Coverage =====
 coverage/
 coverage.xml
 
-# Generated files
+# ===== Generated files =====
 Generated/
 
-# API logs
-/Api/Logs/
+# =====================================
+# ===== Angular / Node (Frontend) =====
+# =====================================
+InventorySystem-Frontend/node_modules/
+InventorySystem-Frontend/dist/
+InventorySystem-Frontend/.angular/
+InventorySystem-Frontend/coverage/
+InventorySystem-Frontend/.env
+InventorySystem-Frontend/npm-debug.log*
+InventorySystem-Frontend/yarn-debug.log*
+InventorySystem-Frontend/yarn-error.log*
