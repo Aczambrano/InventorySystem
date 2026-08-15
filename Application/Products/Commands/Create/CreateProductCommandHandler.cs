@@ -1,4 +1,4 @@
-﻿using InventorySystem.Application.Data;
+using InventorySystem.Application.Data;
 using InventorySystem.Domain.Common;
 using InventorySystem.Domain.Entities;
 using MediatR;
@@ -21,6 +21,12 @@ internal sealed class CreateProductCommandHandler : IRequestHandler<CreateProduc
         if (!providerExists)
         {
             return Result.Failure<Guid>(new Error("Provider.NotFound", "The specified provider was not found."));
+        }
+
+        var skuExists = await _context.Products.AnyAsync(p => p.SKU == request.SKU, cancellationToken);
+        if (skuExists)
+        {
+            return Result.Failure<Guid>(new Error("Product.DuplicateSKU", $"A product with SKU '{request.SKU}' already exists."));
         }
 
         var product = new Product

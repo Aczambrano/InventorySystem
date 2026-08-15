@@ -75,3 +75,6 @@ coverage.xml
 
 # Generated files
 Generated/
+
+# API logs
+/Api/Logs/

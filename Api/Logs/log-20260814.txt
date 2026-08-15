@@ -12,3 +12,580 @@
 2026-08-14 19:53:05.191 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 266.2668ms
 2026-08-14 19:53:05.778 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
 2026-08-14 19:53:06.055 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 276.8789ms
+2026-08-14 19:53:59.901 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Product - null null
+2026-08-14 19:54:03.409 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 12:54:03 a. m.'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-08-14 19:54:03.438 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 12:54:03 a. m.'.
+2026-08-14 19:54:03.455 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-14 19:54:03.470 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-14 19:54:03.478 -05:00 [INF] HTTP GET /api/Product responded 401 in 3555.0352 ms
+2026-08-14 19:54:03.498 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Product - 401 0 null 3596.7616ms
+2026-08-14 19:54:13.508 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Auth/register - application/json 73
+2026-08-14 19:54:13.527 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.AuthController.Register (InventorySystem.Api)'
+2026-08-14 19:54:13.598 -05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(InventorySystem.Application.Authentication.Commands.Register.RegisterCommand) on controller InventorySystem.API.Controllers.AuthController (InventorySystem.Api).
+2026-08-14 19:54:13.614 -05:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-14 19:54:23.991 -05:00 [INF] Executed DbCommand (310ms) [Parameters=[@__request_Username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__request_Username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-14 19:54:24.073 -05:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[InventorySystem.Domain.Common.Error, InventorySystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-14 19:54:24.095 -05:00 [INF] Executed action InventorySystem.API.Controllers.AuthController.Register (InventorySystem.Api) in 10483.5983ms
+2026-08-14 19:54:24.099 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.AuthController.Register (InventorySystem.Api)'
+2026-08-14 19:54:24.106 -05:00 [INF] HTTP POST /api/Auth/register responded 400 in 10590.2187 ms
+2026-08-14 19:54:24.130 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Auth/register - 400 null application/json; charset=utf-8 10622.1006ms
+2026-08-14 19:54:57.996 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Auth/login - application/json 54
+2026-08-14 19:54:58.007 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.AuthController.Login (InventorySystem.Api)'
+2026-08-14 19:54:58.023 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InventorySystem.Application.Authentication.Commands.Login.LoginCommand) on controller InventorySystem.API.Controllers.AuthController (InventorySystem.Api).
+2026-08-14 19:54:58.284 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__request_Username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[IsActive], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__request_Username_0
+2026-08-14 19:54:59.267 -05:00 [INF] Executing OkObjectResult, writing value of type 'InventorySystem.Application.Authentication.Commands.Login.LoginResponse'.
+2026-08-14 19:54:59.276 -05:00 [INF] Executed action InventorySystem.API.Controllers.AuthController.Login (InventorySystem.Api) in 1247.1121ms
+2026-08-14 19:54:59.286 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.AuthController.Login (InventorySystem.Api)'
+2026-08-14 19:54:59.290 -05:00 [INF] HTTP POST /api/Auth/login responded 200 in 1284.6852 ms
+2026-08-14 19:54:59.300 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Auth/login - 200 null application/json; charset=utf-8 1304.0182ms
+2026-08-14 19:55:40.783 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Product - null null
+2026-08-14 19:55:40.825 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.GetAll (InventorySystem.Api)'
+2026-08-14 19:55:40.840 -05:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 19:55:41.194 -05:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Description], [p].[SKU], [t].[Id], [t].[Name], [t].[LotNumber], [t].[UnitPrice], [t].[StockQuantity], [t].[ExpirationDate], [t].[Id0]
+FROM [Products] AS [p]
+LEFT JOIN (
+    SELECT [p0].[Id], [p1].[Name], [p0].[LotNumber], [p0].[UnitPrice], [p0].[StockQuantity], [p0].[ExpirationDate], [p1].[Id] AS [Id0], [p0].[ProductId]
+    FROM [ProductStocks] AS [p0]
+    INNER JOIN [Providers] AS [p1] ON [p0].[ProviderId] = [p1].[Id]
+) AS [t] ON [p].[Id] = [t].[ProductId]
+ORDER BY [p].[Id], [t].[Id]
+2026-08-14 19:55:41.219 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InventorySystem.Application.Products.Queries.GetAll.ProductResponse, InventorySystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-14 19:55:41.262 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.GetAll (InventorySystem.Api) in 414.6462ms
+2026-08-14 19:55:41.267 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.GetAll (InventorySystem.Api)'
+2026-08-14 19:55:41.271 -05:00 [INF] HTTP GET /api/Product responded 200 in 478.8956 ms
+2026-08-14 19:55:41.276 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Product - 200 null application/json; charset=utf-8 492.8651ms
+2026-08-14 19:56:51.436 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Provider - null null
+2026-08-14 19:56:51.444 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 12:56:51 a. m.'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-08-14 19:56:51.451 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 12:56:51 a. m.'.
+2026-08-14 19:56:51.457 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-14 19:56:51.460 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-14 19:56:51.462 -05:00 [INF] HTTP GET /api/Provider responded 401 in 18.4517 ms
+2026-08-14 19:56:51.467 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Provider - 401 0 null 31.1215ms
+2026-08-14 19:58:13.562 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Auth/login - application/json 54
+2026-08-14 19:58:13.570 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.AuthController.Login (InventorySystem.Api)'
+2026-08-14 19:58:13.573 -05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InventorySystem.Application.Authentication.Commands.Login.LoginCommand) on controller InventorySystem.API.Controllers.AuthController (InventorySystem.Api).
+2026-08-14 19:58:13.593 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__request_Username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[IsActive], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__request_Username_0
+2026-08-14 19:58:13.970 -05:00 [INF] Executing OkObjectResult, writing value of type 'InventorySystem.Application.Authentication.Commands.Login.LoginResponse'.
+2026-08-14 19:58:13.977 -05:00 [INF] Executed action InventorySystem.API.Controllers.AuthController.Login (InventorySystem.Api) in 399.512ms
+2026-08-14 19:58:13.983 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.AuthController.Login (InventorySystem.Api)'
+2026-08-14 19:58:13.987 -05:00 [INF] HTTP POST /api/Auth/login responded 200 in 417.2098 ms
+2026-08-14 19:58:13.992 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Auth/login - 200 null application/json; charset=utf-8 429.9641ms
+2026-08-14 19:58:51.072 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Provider - null null
+2026-08-14 19:58:51.083 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProviderController.GetAll (InventorySystem.Api)'
+2026-08-14 19:58:51.095 -05:00 [INF] Route matched with {action = "GetAll", controller = "Provider"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller InventorySystem.API.Controllers.ProviderController (InventorySystem.Api).
+2026-08-14 19:58:51.121 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[TaxId], [p].[IsActive]
+FROM [Providers] AS [p]
+2026-08-14 19:58:51.129 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InventorySystem.Application.Providers.Queries.ProviderResponse, InventorySystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-14 19:58:51.138 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProviderController.GetAll (InventorySystem.Api) in 39.3317ms
+2026-08-14 19:58:51.145 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProviderController.GetAll (InventorySystem.Api)'
+2026-08-14 19:58:51.148 -05:00 [INF] HTTP GET /api/Provider responded 200 in 66.4590 ms
+2026-08-14 19:58:51.154 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Provider - 200 null application/json; charset=utf-8 81.1178ms
+2026-08-14 19:59:19.200 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616/stocks - application/json 190
+2026-08-14 19:59:19.209 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 12:59:19 a. m.'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-08-14 19:59:19.215 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 12:59:19 a. m.'.
+2026-08-14 19:59:19.219 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-14 19:59:19.221 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-14 19:59:19.223 -05:00 [INF] HTTP POST /api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616/stocks responded 401 in 15.0628 ms
+2026-08-14 19:59:19.227 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616/stocks - 401 0 null 27.1936ms
+2026-08-14 19:59:28.718 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616/stocks - application/json 190
+2026-08-14 19:59:28.728 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.AddStock (InventorySystem.Api)'
+2026-08-14 19:59:28.741 -05:00 [INF] Route matched with {action = "AddStock", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddStock(System.Guid, InventorySystem.API.Controllers.AddStockRequest) on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 19:59:28.792 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__request_ProductId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]
+        WHERE [p].[Id] = @__request_ProductId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-14 19:59:28.806 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__request_ProviderId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Providers] AS [p]
+        WHERE [p].[Id] = @__request_ProviderId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-14 19:59:29.190 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 50), @p3='?' (DbType = Guid), @p4='?' (DbType = Guid), @p5='?' (DbType = Int32), @p6='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ProductStocks] ([Id], [ExpirationDate], [LotNumber], [ProductId], [ProviderId], [StockQuantity], [UnitPrice])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+2026-08-14 19:59:29.220 -05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-14 19:59:29.229 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.AddStock (InventorySystem.Api) in 483.1523ms
+2026-08-14 19:59:29.233 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.AddStock (InventorySystem.Api)'
+2026-08-14 19:59:29.238 -05:00 [INF] HTTP POST /api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616/stocks responded 200 in 509.9578 ms
+2026-08-14 19:59:29.245 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616/stocks - 200 null application/json; charset=utf-8 526.2158ms
+2026-08-14 19:59:38.409 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Product - null null
+2026-08-14 19:59:38.418 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.GetAll (InventorySystem.Api)'
+2026-08-14 19:59:38.421 -05:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 19:59:38.453 -05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name], [p].[Description], [p].[SKU], [t].[Id], [t].[Name], [t].[LotNumber], [t].[UnitPrice], [t].[StockQuantity], [t].[ExpirationDate], [t].[Id0]
+FROM [Products] AS [p]
+LEFT JOIN (
+    SELECT [p0].[Id], [p1].[Name], [p0].[LotNumber], [p0].[UnitPrice], [p0].[StockQuantity], [p0].[ExpirationDate], [p1].[Id] AS [Id0], [p0].[ProductId]
+    FROM [ProductStocks] AS [p0]
+    INNER JOIN [Providers] AS [p1] ON [p0].[ProviderId] = [p1].[Id]
+) AS [t] ON [p].[Id] = [t].[ProductId]
+ORDER BY [p].[Id], [t].[Id]
+2026-08-14 19:59:38.462 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InventorySystem.Application.Products.Queries.GetAll.ProductResponse, InventorySystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-14 19:59:38.466 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.GetAll (InventorySystem.Api) in 37.036ms
+2026-08-14 19:59:38.469 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.GetAll (InventorySystem.Api)'
+2026-08-14 19:59:38.472 -05:00 [INF] HTTP GET /api/Product responded 200 in 54.5795 ms
+2026-08-14 19:59:38.479 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Product - 200 null application/json; charset=utf-8 69.7527ms
+2026-08-14 20:20:50.782 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616 - null null
+2026-08-14 20:20:50.793 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 01:20:50 a. m.'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-08-14 20:20:50.800 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 01:20:50 a. m.'.
+2026-08-14 20:20:50.802 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-14 20:20:50.804 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-14 20:20:50.808 -05:00 [INF] HTTP GET /api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616 responded 401 in 15.3458 ms
+2026-08-14 20:20:50.812 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616 - 401 0 null 29.7214ms
+2026-08-14 20:21:02.069 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616 - null null
+2026-08-14 20:21:02.078 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.GetById (InventorySystem.Api)'
+2026-08-14 20:21:02.090 -05:00 [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(System.Guid) on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 20:21:03.863 -05:00 [INF] Executed DbCommand (23ms) [Parameters=[@__request_Id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Name], [t].[Description], [t].[SKU], [t0].[Id], [t0].[Name], [t0].[LotNumber], [t0].[UnitPrice], [t0].[StockQuantity], [t0].[ExpirationDate], [t0].[Id0]
+FROM (
+    SELECT TOP(2) [p].[Id], [p].[Name], [p].[Description], [p].[SKU]
+    FROM [Products] AS [p]
+    WHERE [p].[Id] = @__request_Id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [p0].[Id], [p1].[Name], [p0].[LotNumber], [p0].[UnitPrice], [p0].[StockQuantity], [p0].[ExpirationDate], [p1].[Id] AS [Id0], [p0].[ProductId]
+    FROM [ProductStocks] AS [p0]
+    INNER JOIN [Providers] AS [p1] ON [p0].[ProviderId] = [p1].[Id]
+) AS [t0] ON [t].[Id] = [t0].[ProductId]
+ORDER BY [t].[Id], [t0].[Id]
+2026-08-14 20:21:03.870 -05:00 [INF] Executing OkObjectResult, writing value of type 'InventorySystem.Application.Products.Queries.GetAll.ProductResponse'.
+2026-08-14 20:21:03.874 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.GetById (InventorySystem.Api) in 1778.0506ms
+2026-08-14 20:21:03.878 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.GetById (InventorySystem.Api)'
+2026-08-14 20:21:03.881 -05:00 [INF] HTTP GET /api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616 responded 200 in 1803.0244 ms
+2026-08-14 20:21:03.886 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7041/api/Product/0081e41a-34d3-484a-a0dd-42a0d7d08616 - 200 null application/json; charset=utf-8 1817.4328ms
+2026-08-14 20:21:40.517 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product - application/json 251
+2026-08-14 20:21:40.526 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 01:21:40 a. m.'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-08-14 20:21:40.532 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '14/08/2026 04:15:16 a. m.', Current time (UTC): '15/08/2026 01:21:40 a. m.'.
+2026-08-14 20:21:40.535 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-14 20:21:40.537 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-14 20:21:40.540 -05:00 [INF] HTTP POST /api/Product responded 401 in 14.1008 ms
+2026-08-14 20:21:40.545 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product - 401 0 null 28.0458ms
+2026-08-14 20:21:49.631 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product - application/json 251
+2026-08-14 20:21:49.640 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:21:49.650 -05:00 [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(InventorySystem.Application.Products.Commands.Create.CreateProductCommand) on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 20:21:49.674 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__request_ProviderId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Providers] AS [p]
+        WHERE [p].[Id] = @__request_ProviderId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-14 20:21:49.783 -05:00 [ERR] Failed executing DbCommand (14ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 500), @p2='?' (Size = 150), @p3='?' (Size = 50), @p4='?' (DbType = Guid), @p5='?' (DbType = DateTime2), @p6='?' (Size = 50), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (DbType = Int32), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Products] ([Id], [Description], [Name], [SKU])
+VALUES (@p0, @p1, @p2, @p3);
+INSERT INTO [ProductStocks] ([Id], [ExpirationDate], [LotNumber], [ProductId], [ProviderId], [StockQuantity], [UnitPrice])
+VALUES (@p4, @p5, @p6, @p7, @p8, @p9, @p10);
+2026-08-14 20:21:49.828 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'InventorySystem.Infrastructure.Persistence.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Products' with unique index 'IX_Products_SKU'. The duplicate key value is (string).
+The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ProductStocks_Products_ProductId". The conflict occurred in database "InventorySystemDb", table "dbo.Products", column 'Id'.
+The statement has been terminated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7d8bd210-bb88-40a2-b5f2-e27633600d75
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Products' with unique index 'IX_Products_SKU'. The duplicate key value is (string).
+The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ProductStocks_Products_ProductId". The conflict occurred in database "InventorySystemDb", table "dbo.Products", column 'Id'.
+The statement has been terminated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7d8bd210-bb88-40a2-b5f2-e27633600d75
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-08-14 20:21:49.852 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api) in 195.9996ms
+2026-08-14 20:21:49.858 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:21:49.862 -05:00 [ERR] HTTP POST /api/Product responded 500 in 222.4312 ms
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Products' with unique index 'IX_Products_SKU'. The duplicate key value is (string).
+The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ProductStocks_Products_ProductId". The conflict occurred in database "InventorySystemDb", table "dbo.Products", column 'Id'.
+The statement has been terminated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7d8bd210-bb88-40a2-b5f2-e27633600d75
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InventorySystem.Application.Products.Commands.Create.CreateProductCommandHandler.Handle(CreateProductCommand request, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Products\Commands\Create\CreateProductCommandHandler.cs:line 48
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-14 20:21:49.933 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Products' with unique index 'IX_Products_SKU'. The duplicate key value is (string).
+The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ProductStocks_Products_ProductId". The conflict occurred in database "InventorySystemDb", table "dbo.Products", column 'Id'.
+The statement has been terminated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7d8bd210-bb88-40a2-b5f2-e27633600d75
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InventorySystem.Application.Products.Commands.Create.CreateProductCommandHandler.Handle(CreateProductCommand request, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Products\Commands\Create\CreateProductCommandHandler.cs:line 48
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-08-14 20:21:49.970 -05:00 [ERR] Exception occurred: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Products' with unique index 'IX_Products_SKU'. The duplicate key value is (string).
+The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ProductStocks_Products_ProductId". The conflict occurred in database "InventorySystemDb", table "dbo.Products", column 'Id'.
+The statement has been terminated.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7d8bd210-bb88-40a2-b5f2-e27633600d75
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at InventorySystem.Application.Products.Commands.Create.CreateProductCommandHandler.Handle(CreateProductCommand request, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Products\Commands\Create\CreateProductCommandHandler.cs:line 48
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-08-14 20:21:50.036 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product - 500 null application/json; charset=utf-8 404.911ms
+2026-08-14 20:34:25.829 -05:00 [INF] User profile is available. Using 'C:\Users\Anderson\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-14 20:34:26.507 -05:00 [INF] Now listening on: https://localhost:7041
+2026-08-14 20:34:26.517 -05:00 [INF] Now listening on: http://localhost:5133
+2026-08-14 20:34:27.022 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-14 20:34:27.053 -05:00 [INF] Hosting environment: Development
+2026-08-14 20:34:27.059 -05:00 [INF] Content root path: D:\Banco Guayaquil\InventorySystem\Api
+2026-08-14 20:34:38.965 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product - application/json 251
+2026-08-14 20:34:39.271 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:34:39.327 -05:00 [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(InventorySystem.Application.Products.Commands.Create.CreateProductCommand) on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 20:34:39.345 -05:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-14 20:34:39.589 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api) in 250.3472ms
+2026-08-14 20:34:39.605 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:34:39.613 -05:00 [ERR] HTTP POST /api/Product responded 500 in 560.3217 ms
+InventorySystem.Application.Exceptions.ValidationException: One or more validation failures have occurred.
+   at InventorySystem.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Behaviors\ValidationBehavior.cs:line 33
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-14 20:34:39.663 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+InventorySystem.Application.Exceptions.ValidationException: One or more validation failures have occurred.
+   at InventorySystem.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Behaviors\ValidationBehavior.cs:line 33
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-08-14 20:34:39.692 -05:00 [ERR] Exception occurred: One or more validation failures have occurred.
+InventorySystem.Application.Exceptions.ValidationException: One or more validation failures have occurred.
+   at InventorySystem.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Behaviors\ValidationBehavior.cs:line 33
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-08-14 20:34:39.817 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product - 400 null application/json; charset=utf-8 855.1352ms
+2026-08-14 20:34:55.140 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product - application/json 251
+2026-08-14 20:34:55.159 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:34:55.165 -05:00 [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(InventorySystem.Application.Products.Commands.Create.CreateProductCommand) on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 20:35:00.748 -05:00 [INF] Executed DbCommand (124ms) [Parameters=[@__request_ProviderId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Providers] AS [p]
+        WHERE [p].[Id] = @__request_ProviderId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-14 20:35:00.872 -05:00 [INF] Executed DbCommand (16ms) [Parameters=[@__request_SKU_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]
+        WHERE [p].[SKU] = @__request_SKU_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-14 20:35:00.920 -05:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[InventorySystem.Domain.Common.Error, InventorySystem.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-14 20:35:00.949 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api) in 5778.2711ms
+2026-08-14 20:35:00.969 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:35:00.977 -05:00 [INF] HTTP POST /api/Product responded 400 in 5824.9595 ms
+2026-08-14 20:35:01.013 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product - 400 null application/json; charset=utf-8 5872.0393ms
+2026-08-14 20:37:21.942 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7041/api/Product - application/json 251
+2026-08-14 20:37:21.958 -05:00 [INF] Executing endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:37:21.961 -05:00 [INF] Route matched with {action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(InventorySystem.Application.Products.Commands.Create.CreateProductCommand) on controller InventorySystem.API.Controllers.ProductController (InventorySystem.Api).
+2026-08-14 20:37:21.975 -05:00 [INF] Executed action InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api) in 9.1543ms
+2026-08-14 20:37:21.979 -05:00 [INF] Executed endpoint 'InventorySystem.API.Controllers.ProductController.Create (InventorySystem.Api)'
+2026-08-14 20:37:21.982 -05:00 [ERR] HTTP POST /api/Product responded 500 in 31.7845 ms
+InventorySystem.Application.Exceptions.ValidationException: One or more validation failures have occurred.
+   at InventorySystem.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Behaviors\ValidationBehavior.cs:line 33
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-08-14 20:37:21.997 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+InventorySystem.Application.Exceptions.ValidationException: One or more validation failures have occurred.
+   at InventorySystem.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Behaviors\ValidationBehavior.cs:line 33
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-08-14 20:37:22.013 -05:00 [ERR] Exception occurred: One or more validation failures have occurred.
+InventorySystem.Application.Exceptions.ValidationException: One or more validation failures have occurred.
+   at InventorySystem.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in D:\Banco Guayaquil\InventorySystem\Application\Behaviors\ValidationBehavior.cs:line 33
+   at InventorySystem.API.Controllers.ProductController.Create(CreateProductCommand command) in D:\Banco Guayaquil\InventorySystem\Api\Controllers\ProductController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2026-08-14 20:37:22.032 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7041/api/Product - 400 null application/json; charset=utf-8 90.2495ms
